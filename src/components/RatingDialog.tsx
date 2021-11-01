@@ -20,6 +20,9 @@ const RatingDialog = ({
   const [comment, setComment] = useState('')
 
   const handleClose = () => {
+    setRating(0)
+    setComment('')
+
     onClose?.();
   }
 
