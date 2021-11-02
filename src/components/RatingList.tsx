@@ -14,13 +14,16 @@ const RatingList = ({
 
   return (
     <div className="flex flex-col space-y-5">
-      {ratingList.map(({ count, text }) => (
-        <Rating
-          key={text}
-          count={count}
-          text={text}
-        />
-      ))}
+      {ratingList.length > 0
+        ? ratingList.map(({ count, text }, i) => (
+          <Rating
+            key={i}
+            count={count}
+            text={text}
+          />
+        ))
+        : <div className="text-sm text-gray-500">No ratings yet</div>
+      }
     </div>
   )
 }
