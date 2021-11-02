@@ -8,7 +8,7 @@ import Button from '@/components/Button'
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import RatingDialog from '@/components/RatingDialog'
 import { createRating, subscribeToRatings, supabase } from '@/lib/api';
-import { fetchRatings } from '../src/lib/api';
+import { fetchRatings } from '@/lib/api';
 
 const Home: NextPage = () => {
   const [ratings, setRatings] = useState<any[]>([])
