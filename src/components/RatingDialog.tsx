@@ -18,6 +18,7 @@ const RatingDialog = ({
 
   const [rating, setRating] = useState(0)
   const [comment, setComment] = useState('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
 
   const handleClose = () => {
     setRating(0)
@@ -26,8 +27,10 @@ const RatingDialog = ({
     onClose?.();
   }
 
-  const handleSubmit = () => {
-    onSubmit?.(rating, comment)
+  const handleSubmit = async () => {
+    setIsSubmitting(true)
+    await onSubmit?.(rating, comment)
+    setIsSubmitting(false)
 
     handleClose();
   }
@@ -88,7 +91,7 @@ const RatingDialog = ({
                 onChange={(e) => setComment(e.target.value)}
               />
               <Button onClick={handleSubmit}>
-                Submit review
+                {isSubmitting ? 'Submitting...' : 'Submit review'}
               </Button>
             </div>
           </Transition.Child>
