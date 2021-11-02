@@ -11,12 +11,12 @@ const AverageRating = ({
   return (
     <div className="flex items-center space-x-6">
       <span className="text-gray-700 text-4xl">
-        {count.toFixed(1)}
+        {count ? count.toFixed(1) : 0}
       </span>
       <StarRating
         containerClassName="flex space-x-1"
         starClassName="filter drop-shadow"
-        initialRating={count}
+        initialRating={count ? count : 0}
         isReadOnly={true}
         emptyColor="#E0E0E0"
         activeColor="#FFCD69"
