@@ -1,14 +1,11 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
-import Image from 'next/image'
-import Heading from '@/components/Heading'
+import AverageRating from '@/components/AverageRating';
+import Button from '@/components/Button';
+import Heading from '@/components/Heading';
+import RatingDialog from '@/components/RatingDialog';
 import RatingList from '@/components/RatingList';
-import AverageRating from '@/components/AverageRating'
-import Button from '@/components/Button'
+import { createRating, fetchRatings, subscribeToRatings } from '@/lib/api';
+import type { NextPage } from 'next';
 import { useCallback, useEffect, useMemo, useState } from 'react';
-import RatingDialog from '@/components/RatingDialog'
-import { createRating, subscribeToRatings, supabase } from '@/lib/api';
-import { fetchRatings } from '@/lib/api';
 
 const Home: NextPage = () => {
   const [ratings, setRatings] = useState<any[]>([])

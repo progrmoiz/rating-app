@@ -1,4 +1,3 @@
-import StarRating from 'react-svg-star-rating'
 import Rating from './Rating';
 
 interface RatingListProps {
